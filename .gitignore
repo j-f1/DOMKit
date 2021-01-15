@@ -3,3 +3,5 @@
 /Packages
 /*.xcodeproj
 xcuserdata/
+deps/
+!deps/dl-specs.sh
