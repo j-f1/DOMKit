@@ -1,7 +1,7 @@
 import JavaScriptKit
 import DOMKit
 
-let document = global.document
+let document = globalThis.document
 
 let header = HTMLElement(from: document.createElement(localName: "h1"))!
 header.innerText = "Hello World!"
