@@ -44,7 +44,11 @@ public class EventTarget: JSBridgedClass {
         options: AddEventListenerOptionsOrBool = [:],
         callback: @escaping (Event) -> ()
     ) -> Token {
-        let closure = JSClosure { callback($0[0].fromJSValue()!) }
+        let closure = JSClosure {
+            callback($0[0].fromJSValue()!)
+
+            return .undefined
+        }
         let token: Token
         let listeners: [JSClosure]
         if var existingListeners = eventListeners[type] {

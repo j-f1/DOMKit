@@ -5,7 +5,7 @@
 import JavaScriptKit
 
 public extension Window {
-    public var document: Document { Document(unsafelyWrapping: jsObject.document.object!) }
+    var document: Document { Document(unsafelyWrapping: jsObject.document.object!) }
 }
 
 public extension Document {

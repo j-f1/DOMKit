@@ -16,7 +16,11 @@ public class MutationObserver: JSBridgedClass {
     }
 
     public convenience init(callback: @escaping MutationCallback) {
-        let closure = JSClosure { callback($0[0].fromJSValue()!, $0[1].fromJSValue()!) }
+        let closure = JSClosure {
+            callback($0[0].fromJSValue()!, $0[1].fromJSValue()!)
+
+            return .undefined
+        }
         self.init(unsafelyWrapping: MutationObserver.constructor.new(closure))
         self.closure = closure
     }
